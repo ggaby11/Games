@@ -16,7 +16,7 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +50,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lblTitulo);
 
         lblCountO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCountO.setText("COUNT1");
+        lblCountO.setText("0");
 
         lblPlayerO.setFont(new java.awt.Font("Cute Bubble", 0, 24)); // NOI18N
         lblPlayerO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -61,7 +61,7 @@ public class Vista extends javax.swing.JFrame {
         lblPlayerX.setText("PLAYER X");
 
         lblCountX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCountX.setText("COUNT2");
+        lblCountX.setText("0");
 
         cmdAgain.setFont(new java.awt.Font("Cute Bubble", 0, 24)); // NOI18N
         cmdAgain.setText("AGAIN");
@@ -81,6 +81,11 @@ public class Vista extends javax.swing.JFrame {
 
         txt11.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt11ActionPerformed(evt);
+            }
+        });
 
         txt02.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -92,15 +97,35 @@ public class Vista extends javax.swing.JFrame {
 
         txt12.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt12ActionPerformed(evt);
+            }
+        });
 
         txt01.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt01ActionPerformed(evt);
+            }
+        });
 
         txt00.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt00ActionPerformed(evt);
+            }
+        });
 
         txt10.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt10ActionPerformed(evt);
+            }
+        });
 
         txt20.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -112,9 +137,19 @@ public class Vista extends javax.swing.JFrame {
 
         txt21.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt21ActionPerformed(evt);
+            }
+        });
 
         txt22.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt22ActionPerformed(evt);
+            }
+        });
 
         jDesktopPane2.setLayer(lblCountO, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(lblPlayerO, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -228,21 +263,27 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAgainActionPerformed
-        txt00.setText(null);
-        txt01.setText(null);
-        txt02.setText(null);
-        txt10.setText(null);
-        txt11.setText(null);
-        txt12.setText(null);
-        txt20.setText(null);
-        txt21.setText(null);
-        txt22.setText(null);
+        int i = JOptionPane.showConfirmDialog(rootPane, "Are you gonna play again?", "Play again", JOptionPane.YES_NO_OPTION);
+        if (i == 0) {
+            txt00.setText(null);
+            txt01.setText(null);
+            txt02.setText(null);
+            txt10.setText(null);
+            txt11.setText(null);
+            txt12.setText(null);
+            txt20.setText(null);
+            txt21.setText(null);
+            txt22.setText(null);
+
+            lblCountO.setText("0");
+            lblCountX.setText("0");
+        }
     }//GEN-LAST:event_cmdAgainActionPerformed
 
     private void cmdExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdExitActionPerformed
         JFrame frame = new JFrame("Exit");
         int i = JOptionPane.showConfirmDialog(frame, "Do you really wanna exit?", "Exit game", JOptionPane.YES_OPTION);
-        if(i == 0){
+        if (i == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_cmdExitActionPerformed
@@ -254,6 +295,34 @@ public class Vista extends javax.swing.JFrame {
     private void txt02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt02ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt02ActionPerformed
+
+    private void txt00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt00ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt00ActionPerformed
+
+    private void txt01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt01ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt01ActionPerformed
+
+    private void txt10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt10ActionPerformed
+
+    private void txt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt11ActionPerformed
+
+    private void txt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt12ActionPerformed
+
+    private void txt21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt21ActionPerformed
+
+    private void txt22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt22ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
