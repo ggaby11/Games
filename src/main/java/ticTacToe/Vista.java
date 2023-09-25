@@ -13,10 +13,33 @@ import javax.swing.JOptionPane;
  */
 public class Vista extends javax.swing.JFrame {
 
+    String turn = "O";
+    char fields[][] = new char[3][3];
+
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        /*char i;
+        i = (txt00.getText()).charAt(0);
+        fields[0][0] = i;
+        i = (txt01.getText()).charAt(0);
+        fields[0][1] = i;
+        i = (txt02.getText()).charAt(0);
+        fields[0][2] = i;
+        
+        i = (txt10.getText()).charAt(0);
+        fields[1][0] = i;
+        i = (txt11.getText()).charAt(0);
+        fields[1][1] = i;
+        i = (txt12.getText()).charAt(0);
+        fields[1][2] = i;
+        
+        i = (txt20.getText()).charAt(0);
+        fields[2][0] = i;
+        i = (txt21.getText()).charAt(0);
+        fields[2][1] = i;
+        i = (txt22.getText()).charAt(0);
+        fields[2][2] = i;*/
     }
 
     @SuppressWarnings("unchecked")
@@ -32,15 +55,16 @@ public class Vista extends javax.swing.JFrame {
         lblCountX = new javax.swing.JLabel();
         cmdAgain = new javax.swing.JButton();
         cmdExit = new javax.swing.JButton();
-        txt11 = new javax.swing.JTextField();
-        txt02 = new javax.swing.JTextField();
-        txt12 = new javax.swing.JTextField();
-        txt01 = new javax.swing.JTextField();
         txt00 = new javax.swing.JTextField();
+        lblTurnoYGanador = new javax.swing.JLabel();
+        txt01 = new javax.swing.JTextField();
+        txt02 = new javax.swing.JTextField();
         txt10 = new javax.swing.JTextField();
-        txt20 = new javax.swing.JTextField();
-        txt21 = new javax.swing.JTextField();
+        txt11 = new javax.swing.JTextField();
+        txt12 = new javax.swing.JTextField();
         txt22 = new javax.swing.JTextField();
+        txt21 = new javax.swing.JTextField();
+        txt20 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,75 +103,88 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        txt11.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt11ActionPerformed(evt);
-            }
-        });
-
-        txt02.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt02.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt02ActionPerformed(evt);
-            }
-        });
-
-        txt12.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt12ActionPerformed(evt);
-            }
-        });
-
-        txt01.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt01ActionPerformed(evt);
-            }
-        });
-
+        txt00.setEditable(false);
         txt00.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt00.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt00.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt00ActionPerformed(evt);
+        txt00.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt00MouseClicked(evt);
             }
         });
 
+        lblTurnoYGanador.setFont(new java.awt.Font("Cute Bubble", 3, 18)); // NOI18N
+        lblTurnoYGanador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTurnoYGanador.setText("O's turn");
+
+        txt01.setEditable(false);
+        txt01.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt01.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt01MouseClicked(evt);
+            }
+        });
+
+        txt02.setEditable(false);
+        txt02.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt02.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt02MouseClicked(evt);
+            }
+        });
+
+        txt10.setEditable(false);
         txt10.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt10ActionPerformed(evt);
+        txt10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt10MouseClicked(evt);
             }
         });
 
-        txt20.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt20ActionPerformed(evt);
+        txt11.setEditable(false);
+        txt11.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt11MouseClicked(evt);
             }
         });
 
-        txt21.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
-        txt21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt21ActionPerformed(evt);
+        txt12.setEditable(false);
+        txt12.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt12MouseClicked(evt);
             }
         });
 
+        txt22.setEditable(false);
         txt22.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
         txt22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt22ActionPerformed(evt);
+        txt22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt22MouseClicked(evt);
+            }
+        });
+
+        txt21.setEditable(false);
+        txt21.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt21MouseClicked(evt);
+            }
+        });
+
+        txt20.setEditable(false);
+        txt20.setFont(new java.awt.Font("Cute Bubble", 1, 70)); // NOI18N
+        txt20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt20MouseClicked(evt);
             }
         });
 
@@ -157,87 +194,93 @@ public class Vista extends javax.swing.JFrame {
         jDesktopPane2.setLayer(lblCountX, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(cmdAgain, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(cmdExit, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(txt11, javax.swing.JLayeredPane.MODAL_LAYER);
-        jDesktopPane2.setLayer(txt02, javax.swing.JLayeredPane.MODAL_LAYER);
-        jDesktopPane2.setLayer(txt12, javax.swing.JLayeredPane.MODAL_LAYER);
-        jDesktopPane2.setLayer(txt01, javax.swing.JLayeredPane.MODAL_LAYER);
         jDesktopPane2.setLayer(txt00, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(lblTurnoYGanador, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt01, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(txt02, javax.swing.JLayeredPane.MODAL_LAYER);
         jDesktopPane2.setLayer(txt10, javax.swing.JLayeredPane.MODAL_LAYER);
-        jDesktopPane2.setLayer(txt20, javax.swing.JLayeredPane.MODAL_LAYER);
-        jDesktopPane2.setLayer(txt21, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(txt11, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(txt12, javax.swing.JLayeredPane.MODAL_LAYER);
         jDesktopPane2.setLayer(txt22, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(txt21, javax.swing.JLayeredPane.MODAL_LAYER);
+        jDesktopPane2.setLayer(txt20, javax.swing.JLayeredPane.MODAL_LAYER);
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(57, 57, 57)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(txt00, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt01, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt02, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblTurnoYGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(txt10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(txt20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt21, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt22, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(120, 120, 120)
-                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(cmdAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmdExit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblCountX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPlayerX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPlayerO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCountO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(46, 46, 46))
+                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(txt20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt21, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt22, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(txt10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(txt00, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt01, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt02, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(109, 109, 109)
+                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPlayerO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(cmdAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmdExit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCountX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPlayerX, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCountO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(61, 61, 61))))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTurnoYGanador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(lblPlayerO)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCountO)
-                        .addGap(34, 34, 34)
-                        .addComponent(lblPlayerX)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCountX)
-                        .addGap(37, 37, 37)
-                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmdAgain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmdExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt02, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt00, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt01, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt00, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txt02, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt22, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt20, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt21, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt20, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                            .addComponent(txt22, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmdAgain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmdExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblPlayerO)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCountO)
+                        .addGap(51, 51, 51)
+                        .addComponent(lblPlayerX)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCountX)))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,11 +299,62 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt20MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt20MouseClicked
+
+    private void txt21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt21MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt21MouseClicked
+
+    private void txt22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt22MouseClicked
+
+    private void txt12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt12MouseClicked
+
+    private void txt11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt11MouseClicked
+
+    private void txt10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt10MouseClicked
+
+    private void txt02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt02MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt02MouseClicked
+
+    private void txt01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt01MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt01MouseClicked
+
+    private void txt00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt00MouseClicked
+        String aux = txt00.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt00.setText(turn);
+            move();
+        }
+    }//GEN-LAST:event_txt00MouseClicked
+
+    private void cmdExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdExitActionPerformed
+        JFrame frame = new JFrame("Exit");
+        int i = JOptionPane.showConfirmDialog(frame, "Do you really wanna exit?", "Exit game", JOptionPane.YES_OPTION);
+        if (i == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_cmdExitActionPerformed
 
     private void cmdAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAgainActionPerformed
         int i = JOptionPane.showConfirmDialog(rootPane, "Are you gonna play again?", "Play again", JOptionPane.YES_NO_OPTION);
@@ -280,49 +374,22 @@ public class Vista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmdAgainActionPerformed
 
-    private void cmdExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdExitActionPerformed
-        JFrame frame = new JFrame("Exit");
-        int i = JOptionPane.showConfirmDialog(frame, "Do you really wanna exit?", "Exit game", JOptionPane.YES_OPTION);
-        if (i == 0) {
-            System.exit(0);
+    private void move() {
+        int aux1;
+        String aux2;
+
+        if (turn.equals("O")) {
+            turn = "X";
+            aux1 = Integer.parseInt(lblCountX.getText()) + 1;
+            aux2 = String.valueOf(aux1);
+            lblCountX.setText(aux2);
+        } else {
+            turn = "O";
+            aux1 = Integer.parseInt(lblCountO.getText()) + 1;
+            aux2 = String.valueOf(aux1);
+            lblCountO.setText(aux2);
         }
-    }//GEN-LAST:event_cmdExitActionPerformed
-
-    private void txt20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt20ActionPerformed
-
-    private void txt02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt02ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt02ActionPerformed
-
-    private void txt00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt00ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt00ActionPerformed
-
-    private void txt01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt01ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt01ActionPerformed
-
-    private void txt10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt10ActionPerformed
-
-    private void txt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt11ActionPerformed
-
-    private void txt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt12ActionPerformed
-
-    private void txt21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt21ActionPerformed
-
-    private void txt22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt22ActionPerformed
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -366,6 +433,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel lblPlayerO;
     private javax.swing.JLabel lblPlayerX;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTurnoYGanador;
     private javax.swing.JTextField txt00;
     private javax.swing.JTextField txt01;
     private javax.swing.JTextField txt02;
