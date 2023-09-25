@@ -306,35 +306,91 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt20MouseClicked
-        // TODO add your handling code here:
+        String aux = txt20.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt20.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt20MouseClicked
 
     private void txt21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt21MouseClicked
-        // TODO add your handling code here:
+        String aux = txt21.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt21.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt21MouseClicked
 
     private void txt22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt22MouseClicked
-        // TODO add your handling code here:
+        String aux = txt22.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt22.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt22MouseClicked
 
     private void txt12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt12MouseClicked
-        // TODO add your handling code here:
+        String aux = txt12.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt12.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt12MouseClicked
 
     private void txt11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt11MouseClicked
-        // TODO add your handling code here:
+        String aux = txt11.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt11.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt11MouseClicked
 
     private void txt10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt10MouseClicked
-        // TODO add your handling code here:
+        String aux = txt10.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt10.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt10MouseClicked
 
     private void txt02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt02MouseClicked
-        // TODO add your handling code here:
+        String aux = txt02.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt02.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt02MouseClicked
 
     private void txt01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt01MouseClicked
-        // TODO add your handling code here:
+        String aux = txt01.getText();
+              
+        if (aux.equals("X") || aux.equals("O")) {
+            JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            txt01.setText(turn);
+            move();
+        }
     }//GEN-LAST:event_txt01MouseClicked
 
     private void txt00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt00MouseClicked
@@ -379,11 +435,13 @@ public class Vista extends javax.swing.JFrame {
         String aux2;
 
         if (turn.equals("O")) {
+            lblTurnoYGanador.setText("X's turn");
             turn = "X";
             aux1 = Integer.parseInt(lblCountX.getText()) + 1;
             aux2 = String.valueOf(aux1);
             lblCountX.setText(aux2);
         } else {
+            lblTurnoYGanador.setText("O's turn");
             turn = "O";
             aux1 = Integer.parseInt(lblCountO.getText()) + 1;
             aux2 = String.valueOf(aux1);
