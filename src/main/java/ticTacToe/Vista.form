@@ -117,10 +117,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblTurnoYGanador" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-=======
-                  <EmptySpace max="-2" attributes="0"/>
->>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
