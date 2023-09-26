@@ -19,6 +19,30 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
+<<<<<<< HEAD
+=======
+        /*char i;
+        i = (txt00.getText()).charAt(0);
+        fields[0][0] = i;
+        i = (txt01.getText()).charAt(0);
+        fields[0][1] = i;
+        i = (txt02.getText()).charAt(0);
+        fields[0][2] = i;
+        
+        i = (txt10.getText()).charAt(0);
+        fields[1][0] = i;
+        i = (txt11.getText()).charAt(0);
+        fields[1][1] = i;
+        i = (txt12.getText()).charAt(0);
+        fields[1][2] = i;
+        
+        i = (txt20.getText()).charAt(0);
+        fields[2][0] = i;
+        i = (txt21.getText()).charAt(0);
+        fields[2][1] = i;
+        i = (txt22.getText()).charAt(0);
+        fields[2][2] = i;*/
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
     }
 
     @SuppressWarnings("unchecked")
@@ -292,7 +316,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt20.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt20MouseClicked
 
@@ -304,7 +331,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt21.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt21MouseClicked
 
@@ -316,7 +346,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt22.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt22MouseClicked
 
@@ -328,7 +361,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt12.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt12MouseClicked
 
@@ -340,7 +376,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt11.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt11MouseClicked
 
@@ -352,7 +391,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt10.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt10MouseClicked
 
@@ -364,7 +406,10 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt02.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt02MouseClicked
 
@@ -376,19 +421,29 @@ public class Vista extends javax.swing.JFrame {
         } else {
             txt01.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt01MouseClicked
 
     private void txt00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt00MouseClicked
         String aux = txt00.getText();
+<<<<<<< HEAD
         
+=======
+              
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             txt00.setText(turn);
             move();
+<<<<<<< HEAD
             winner();
+=======
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_txt00MouseClicked
 
@@ -412,10 +467,17 @@ public class Vista extends javax.swing.JFrame {
             txt20.setText(null);
             txt21.setText(null);
             txt22.setText(null);
+<<<<<<< HEAD
+=======
+
+            lblCountO.setText("0");
+            lblCountX.setText("0");
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
         }
     }//GEN-LAST:event_cmdAgainActionPerformed
 
     private void move() {
+<<<<<<< HEAD
         if (turn.equals("O")) {
             lblTurnoYGanador.setText("X's turn");
             turn = "X";
@@ -428,6 +490,25 @@ public class Vista extends javax.swing.JFrame {
     private void winner(){
         
     }
+=======
+        int aux1;
+        String aux2;
+
+        if (turn.equals("O")) {
+            lblTurnoYGanador.setText("X's turn");
+            turn = "X";
+            aux1 = Integer.parseInt(lblCountX.getText()) + 1;
+            aux2 = String.valueOf(aux1);
+            lblCountX.setText(aux2);
+        } else {
+            lblTurnoYGanador.setText("O's turn");
+            turn = "O";
+            aux1 = Integer.parseInt(lblCountO.getText()) + 1;
+            aux2 = String.valueOf(aux1);
+            lblCountO.setText(aux2);
+        }
+    }
+>>>>>>> c100661d2639e6b1c7ee03bf622c543def0e5acd
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
