@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class Vista extends javax.swing.JFrame {
 
     String turn = "O";
-    char fields[][] = new char[3][3];
+    int fields[][] = new int[3][3];
 
     public Vista() {
         initComponents();
@@ -286,7 +286,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt20MouseClicked
         String aux = txt20.getText();
-              
+        fields[2][0] = (aux.equals("X")) ? 1 : (aux.equals("O") ? 2 : 0);
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -298,7 +298,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt21MouseClicked
         String aux = txt21.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -310,7 +310,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt22MouseClicked
         String aux = txt22.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -322,7 +322,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt12MouseClicked
         String aux = txt12.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -334,7 +334,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt11MouseClicked
         String aux = txt11.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -346,7 +346,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt10MouseClicked
         String aux = txt10.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -358,10 +358,11 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt02MouseClicked
         String aux = txt02.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
+            fields[0][2] = (turn.equals("X")) ? 1 : (turn.equals("O") ? 2 : 0);
             txt02.setText(turn);
             move();
             winner();
@@ -370,10 +371,11 @@ public class Vista extends javax.swing.JFrame {
 
     private void txt01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt01MouseClicked
         String aux = txt01.getText();
-              
+
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
+            fields[0][1] = (turn.equals("X")) ? 1 : (turn.equals("O") ? 2 : 0);
             txt01.setText(turn);
             move();
             winner();
@@ -386,6 +388,7 @@ public class Vista extends javax.swing.JFrame {
         if (aux.equals("X") || aux.equals("O")) {
             JOptionPane.showMessageDialog(rootPane, "\uD83D\uDE44" + " Don't be silly!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
+            fields[0][0] = (turn.equals("X")) ? 1 : (turn.equals("O") ? 2 : 0);
             txt00.setText(turn);
             move();
             winner();
@@ -424,8 +427,34 @@ public class Vista extends javax.swing.JFrame {
             turn = "O";
         }
     }
-    
-    private void winner(){
+
+    private void winner() {
+        //match horizontal, match vertical, match lateral
+        boolean case1 = fields[0][0] == fields[0][1] && fields[0][1] == fields[0][2] ||
+                        fields[0][0] == fields[1][0] && fields[1][0] == fields[2][0] ||
+                        fields[0][0] == fields[1][1] && fields[1][1] == fields[2][2];
+                        
+        
+        //match horizontal, match vertical, match lateral
+        boolean case2 = fields[1][0] == fields[1][1] && fields[1][1] == fields[1][2] || 
+                        fields[0][1] == fields[1][1] && fields[1][1] == fields[2][1] ||
+                        fields[0][2] == fields[1][1] && fields[1][1] == fields[0][2];
+        
+        //match horizontal, match vertical
+        boolean case3 = fields[2][0] == fields[2][1] && fields[2][1] == fields[2][2] ||
+                        fields[0][2] == fields[1][2] && fields[1][2] == fields[2][2];
+                
+        if (case1){
+            lblTurnoYGanador.setText((fields[0][0] == 1) ? "x is the winner" : "O is the winner");
+        } else {
+            if (case2){
+                lblTurnoYGanador.setText((fields[1][1] == 1) ? "x is the winner" : "O is the winner");
+            } else {
+                if (case3){
+                    lblTurnoYGanador.setText((fields[2][2] == 1) ? "x is the winner" : "O is the winner");
+                }
+            }
+        }
         
     }
 
